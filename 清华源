@@ -1,5 +1,8 @@
 
+# 配置虚拟环境
+conda create -n  henan_ctdbpsp  python==3.9.11 -y
 
+# 下载请求包
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple   -r requirements.txt
 
 pip list --format=freeze > requirements.txt
@@ -9,8 +12,13 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    requests
 
 pip uninstall -y  pandas
 
+# 打包三方包
 pip freeze >requirements.txt
 
 ##取消 github http代理
 git config --global --unset http.https://github.com.proxy
+
+# 设置 github http代理
+git config --global https.proxy http://127.0.0.1:7890
+git config --global http.proxy 'socks5://127.0.0.1:7890
 
