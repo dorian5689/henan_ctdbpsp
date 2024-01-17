@@ -9,6 +9,7 @@ pip list --format=freeze > requirements.txt
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    pycryptodome
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    schedule
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    requests
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    pymysql
 
 pip uninstall -y  pandas
 

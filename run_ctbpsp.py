@@ -151,7 +151,7 @@ def contains_keywords(title):
 if __name__ == '__main__':
 
     parse()
-    # schedule.every(1).hours.do(parse)
+    schedule.every(1).hours.do(parse)
     schedule.every(50).minutes.do(parse)
 
     schedule.every().day.at("01:50").do(parse)
