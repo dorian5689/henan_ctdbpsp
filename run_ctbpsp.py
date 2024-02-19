@@ -102,7 +102,7 @@ def run_ctp(encrypt_data):
                         cursor.close()
                         connection.close()
 
-                        print(
+                        print(f'{now_time()}'-----
                             f'标题: {title}\n公告类型: {bulletin_type}\n省份: {province}\n接收时间: {accept_time}\n详情url地址: {detail_url}')
                     except:
 
@@ -113,14 +113,24 @@ def run_ctp(encrypt_data):
     except:
         pass
 
+def now_time():
+    from datetime import datetime
 
+    # 获取当前时间
+    current_time = datetime.now()
+
+    # 格式化为字符串，包含年-月-日 时:分:秒
+    formatted_time = current_time.strftime('%Y-%m-%d %H:%M:%S')
+    return formatted_time
 def parse():
     print(F'开始运行！')
 
     # 获取当前的年月日
     for page in range(1, 1001):
         encrypt_data = get_results(page)
-        print(F'第{page - 1}页')
+
+
+        print(F'{now_time()}---第{page - 1}页')
 
         try:
             run_ctp(encrypt_data)
@@ -151,10 +161,10 @@ def contains_keywords(title):
 if __name__ == '__main__':
 
     parse()
-    schedule.every(1).hours.do(parse)
-    schedule.every(50).minutes.do(parse)
-
-    schedule.every().day.at("01:50").do(parse)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # schedule.every(50).hours.do(parse)
+    # schedule.every(50).minutes.do(parse)
+    #
+    # schedule.every().day.at("01:50").do(parse)
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
